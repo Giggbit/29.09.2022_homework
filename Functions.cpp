@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
 #include <iostream>
 
@@ -97,7 +98,31 @@ void Edit(Tree& tree) {
 }
 
 void SaveFile(Tree& tree) {
-    tree.SaveFile();
+    system("cls");
+
+    Node* temp = tree.GetRoot();
+    Node* node = tree.GetRoot();
+    char buffer[15];
+
+    FILE* fp;
+    fp = fopen("Translate file", "w+");
+
+    int count = 0;
+    cout << "Enter count of words: ";
+    cin >> count;
+
+    for (int i = 0; i < count; i++) {
+        cout << "Enter word: ";
+        cin >> buffer;
+        node = tree.Search(tree.GetRoot(), buffer);
+
+        fputs(node->m_english, fp);
+        fputs(" - ", fp);
+        fputs(node->m_russian, fp);
+        fputs("\n", fp);
+    }
+    getc(fp);
+
     cout << "File saved" << endl;
     _getch();
 }

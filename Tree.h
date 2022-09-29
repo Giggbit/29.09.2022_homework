@@ -3,12 +3,8 @@
 
 class Tree {
 private:
-
-    // Корень.
-    Node* m_root;
-
-    // Количество узлов.
-    unsigned int m_size;
+    Node* m_root;  // Корень.
+    unsigned int m_size; // Количество узлов.
 
 public:
     Tree();
@@ -23,6 +19,5 @@ public:
     void Remove(Node* node);
     Node* Search(Node* node, const char* key) const;
     Node* Edit(Node* node);  
-    Node* SaveFile();
 };
 

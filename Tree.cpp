@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "Tree.h"
 #include <iostream>
 #include <stdio.h>
@@ -76,7 +75,6 @@ Node* Tree::Max(Node* node) const
             node = node->m_right;
         }
     }
-
     return node;
 }
 
@@ -259,22 +257,5 @@ Node* Tree::Edit(Node* node) {
     return node;
 }
 
-Node* Tree::SaveFile() {
-    Node* node = m_root;
-    Insert(node);
 
-    FILE* fp;
-    fp = fopen("English words", "w+");
-    fp = fopen("Translated words", "w+");
-
-    if ((fp = fopen("English words", "w")) == NULL) {
-        printf("Ошибка при открытии файла.\n");
-        exit(1);
-    }
-
-    fputs(node->m_english, fp);
-    fputs(node->m_russian, fp);
-
-    return node;
-}
 
