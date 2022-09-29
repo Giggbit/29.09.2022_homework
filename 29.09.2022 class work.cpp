@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <Windows.h>
+#include <iostream>
 #include <conio.h>
 
 #include "Tree.h"
@@ -10,6 +11,10 @@ static int a;
 using namespace std;
 
 int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "Rus");
+
     cout << a;
 
     Tree tree;
